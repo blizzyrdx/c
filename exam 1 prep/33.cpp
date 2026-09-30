@@ -10,11 +10,11 @@ int main () {
     cout << "Inches: ";
     cin >> inches;
 
-    double feet = static_cast<double>(inches)/12;
-    double yards = feet/3;
+    double feet = inches /12.0 ;
+    double yards = feet/ 3.0 ;
 
-    cout << setprecision(3) << fixed << left << setw(20) << "Inches -> Feet " << right << setw(10) << feet << endl;
-    cout << left << setw(20) << "Feet -> Yards" << right << setw(10) << yards << endl;
+    cout << left << setw(20) << "Inches -> Feet " << setw(10) << right << fixed << setprecision(3) << feet << endl;
+    cout << left << setw(20) << "Feet -> Yards" << right << fixed << setprecision(3) << setw(10) << yards << endl;
 
     return 0;
 }
