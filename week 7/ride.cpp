@@ -18,15 +18,17 @@ int main () {
     } while (!iFile.is_open());
 
     getline(iFile, headers);
-    getline(iFile, rideName);
-    cout << "Headers: " << headers << endl;
-    cout << "Ride Name: " << rideName << endl;
     int wait = 0;
-    iFile >> wait;
-    iFile.close();
-    if (wait <= 0) {
-        cout << rideName << "" << wait << endl;
+    if (iFile.fail() || wait <= 0 || rideName.empty()) {
+        cout << "Error reading ride information." << endl;
+        return 1;
     }
+    iFile >> rideName >> wait;
+
+    cout << rideName << " " << wait << endl;
+
+    iFile.close(); //closes file
+
     return 0;
 }
 
