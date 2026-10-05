@@ -9,7 +9,7 @@ int main () {
     int wait = 0; //initialize wait time to 0
 
 
-   do {
+   do { //do loop for prompting filename until a valid file is opened
     cout << "Filename: ";
     cin >> filename;
 
@@ -25,8 +25,15 @@ int main () {
         
         if (iFile.fail() || wait <= 0 || rideName.empty()) {
             cout << "Error reading ride information." << endl;
-            break;
+            iFile.clear();
+            iFile.ignore(256, '\n');
+            continue;
         }
+        if (rideName != "matterhorn" && rideName != "rise_of_the_resistance") {
+            cout << "Unknown ride: " << rideName << endl;
+            continue;
+        }
+
         iFile >> rideName >> wait;
         cout << rideName << " " << wait << endl;
     }
