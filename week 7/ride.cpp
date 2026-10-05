@@ -6,6 +6,8 @@ using namespace std;
 int main () {
     ifstream iFile;
     string filename = "", headers = "", rideName = "";
+    int wait = 0; //initialize wait time to 0
+
 
    do {
     cout << "Filename: ";
@@ -18,17 +20,16 @@ int main () {
     } while (!iFile.is_open());
 
     getline(iFile, headers);
-    int wait = 0;
-    if (iFile.fail() || wait <= 0 || rideName.empty()) {
-        cout << "Error reading ride information." << endl;
-        return 1;
+    
+    while (!iFile.eof()) { //new syntax for reading until end of file
+        iFile >> rideName >> wait;
+        cout << rideName << " " << wait << endl;
     }
-    iFile >> rideName >> wait;
-
-    cout << rideName << " " << wait << endl;
 
     iFile.close(); //closes file
 
     return 0;
 }
 
+// iFile.eof() new syntax
+// you can use cd .. to get to cs135 main file
