@@ -21,8 +21,8 @@ int main () {
 
     double num = 0;
     iFile >> num;
-    iFile.close();
     cout << "Read number: " << num << endl;
+    iFile.close();
     return 0;
 }
 
