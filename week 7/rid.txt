@@ -1,8 +1,8 @@
 ride wait
-matterhorn 50
+matterhorn error
 rise_of_the_resistance 90
 mickey_and_miniie's_runaway_railway 45
-space_mountain 60
+space_mountain -10
 incredicoaster 25
 mission_breakout 45
 soarin 30

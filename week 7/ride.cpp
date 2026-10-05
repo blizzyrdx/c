@@ -22,10 +22,14 @@ int main () {
     getline(iFile, headers);
     
     while (!iFile.eof()) { //new syntax for reading until end of file
+        
+        if (iFile.fail() || wait <= 0 || rideName.empty()) {
+            cout << "Error reading ride information." << endl;
+            break;
+        }
         iFile >> rideName >> wait;
         cout << rideName << " " << wait << endl;
     }
-
     iFile.close(); //closes file
 
     return 0;
