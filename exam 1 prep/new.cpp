@@ -17,7 +17,7 @@ int main() {
     cout << "(A/a)rea -or (P/p)erimeter ";
     cin >> expression;
 
-    double area = (3 * sqrt(3))/20 * pow(length, 2);
+    double area = (3 * sqrt(3))/2 * pow(length, 2);
     double perimeter = 6 * length;
 
     switch (expression) {
