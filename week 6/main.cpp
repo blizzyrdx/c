@@ -93,6 +93,8 @@ int main() {
             }
         }
 
+        cout << endl;
+
         if (match1) {
             cout << weapon1 << endl;
         }
@@ -114,7 +116,6 @@ int main() {
         }
 
         if (!match1 && !match2 && !match3 && !match4 && !match5) {
-            cout << endl;
             cout << searchString << " not found in any weapons." << endl;
         }
 
