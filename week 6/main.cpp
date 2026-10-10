@@ -44,8 +44,8 @@ int main() { //entry
         else {
             for (int i = 0; i < searchString.length(); i++) {
                 if (weapon1[i] != searchString[i]) { // matches them one and a time
-                    match1 = false;
-                    break;
+                    match1 = false; // flag that weapon1 does not match the search string
+                    break; // exit the loop if a character does not match
                 }
             }
         }
@@ -56,8 +56,8 @@ int main() { //entry
         else {
             for (int i = 0; i < searchString.length(); i++) {
                 if (weapon2[i] != searchString[i]) { // matches them one and a time
-                    match2 = false;
-                    break;
+                    match2 = false; // flag that weapon2 does not match the search string
+                    break; // exit the loop if a character does not match
                 }
             }
         }
@@ -68,14 +68,14 @@ int main() { //entry
         else {
             for (int i = 0; i < searchString.length(); i++) {
                 if (weapon3[i] != searchString[i]) { // matches them one and a time
-                    match3 = false;
-                    break; // exit the loop if a character does not match
+                    match3 = false; // flag that weapon3 does not match the search string
+                    break; // exit the loop if a character does not match weapon3
                 }
             }
         }
 
-        if (searchString.length() > weapon4.length()) {
-            match4 = false;
+        if (searchString.length() > weapon4.length()) { // checks for weapon4
+            match4 = false; // flag that weapon4 does not match the search string
         }
         else {
             for (int i = 0; i < searchString.length(); i++) {
@@ -143,9 +143,8 @@ int main() { //entry
 
         } while (again != 0 && again != 1); // do while statement
 
-        cin.ignore(10000, '\n');
+        cin.ignore(10000, '\n'); // ignore the rest of the input line to prevent issues with subsequent input
 
-    } while (again == 1);
-
+    } while (again == 1); // repeat the search process if the user wants to find another weapon
     return 0;
-}
+} // end of main function
