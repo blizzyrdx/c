@@ -12,7 +12,7 @@ int main() { //entry
     string weapon5 = "dragon hunter lance"; //dragon hunter weapon selection
 
     string searchString; //search string entered by the user
-    int again = 0;
+    int again = 0; // 
 
     do { 
 
