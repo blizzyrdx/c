@@ -3,9 +3,9 @@
 using namespace std;
 
 int main () {
-    int arr [3];
+    int arr [3]; 
 
-    cout << arr << endl;
+    cout << arr << endl; //displays the memory address of the first element of the array
     return 0;
 }
 
