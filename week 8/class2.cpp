@@ -11,7 +11,13 @@ int main ()
     // show initial inventory
     for (int i = 0; i < SIZE; i++) 
     {
-        cout << inventory[i] << endl;
+        if (inventory[i] != "") {// only print non-empty inventory items
+            cout << inventory[i] << " " << endl;
+        }
+        else 
+        { 
+            cout << "Empty slot" << " " << endl;
+        }
     }
     return 0;
 
