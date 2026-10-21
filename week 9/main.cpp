@@ -1,56 +1,65 @@
+
 #include <fstream>
 #include <iostream>
 
 using namespace std;
 
-int main () {
+int main() {
+
     // Open the CSV file for reading
     ifstream iFile("trees.csv");
-    iFile.open("trees.csv");
+
     const int row = 10;
     const int column = 15;
-    int matrix[row][column] = {}; // Initialize a 2D array to store the data from the CSV file
 
-    string headers = "x,y"; // Read the headers from the CSV file
-    int x = 0, y = 0; // Initialize variables to store the x and y values
-    iFile >> headers;
+    // Initialize a 2D array with all zeros
+    int matrix[row][column] = {};
 
-    // Read the data from the CSV file into the matrix
-    for (int count = 0; count < row; count++) {
-        for (int count2 = 0; count2 < column; count2++) {
-            char comma; // Variable to store the comma separator
-            iFile >> x >> comma >> y; // Read the x and y values from the CSV file
+    int x = 0, y = 0;
+    char comma;
+
+    // Check if the file opened successfully
+    if (!iFile.is_open()) {
+        cout << "Error opening file" << endl;
+        return 1;
+    }
+
+    // Skip the first line containing the CSV headers
+    iFile.ignore(1000, '\n');
+
+    // Read coordinate pairs from the CSV file
+    while (iFile >> x >> comma >> y) {
+
+        // Check if the coordinates are valid
+        if (x >= 0 && x < row &&
+            y >= 0 && y < column &&
+            comma == ',') {
+
+            // Place a tree at the given coordinates
+            matrix[x][y] = 1;
         }
     }
+
     // Close the CSV file
     iFile.close();
-    
-    // Print the values of trees in the matrix as t and the none values as underscores
+
+    // Display the tree matrix
     cout << "Tree Matrix:\n";
+
     for (int count = 0; count < row; count++) {
         for (int count2 = 0; count2 < column; count2++) {
-            if (matrix[count][count2] == 1) { // Check if the value in the matrix is 1
-                cout << "t "; // Print t to indicate a tree is present
-            } else {
-                cout << "_ "; // Print _ to indicate no tree is present
+
+            // Check whether a tree exists
+            if (matrix[count][count2] == 1) {
+                cout << "t ";
+            }
+            else {
+                cout << "_ ";
             }
         }
-        cout << endl; // Print a new line after each row
+
+        cout << endl;
     }
-   
-    
-    // this is the trees
 
-    // Print the underscores
-    
-    // Prompt user
-
-    // Read in from user column and row input
-
-    // Validate if its okay and if good loop  
-
-    // end program
     return 0;
 }
-
-// do bubble sort and other sorting algorithms 
